@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Spam Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <section class="card">
+            <p class="eyebrow">Machine Learning Text Classification</p>
+            <h1>SMS Spam Detector</h1>
+            <p class="summary">Enter an SMS message to classify it as spam or ham using a trained TF-IDF ensemble model.</p>
+            <form method="POST" action="/predict">
+                <label for="sms_text">SMS message</label>
+                <textarea id="sms_text" name="sms_text" placeholder="Example: Congratulations! You won a free prize..." required></textarea>
+                <button type="submit">Classify Message</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
