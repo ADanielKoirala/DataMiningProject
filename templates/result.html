@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classification Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="container">
+        <section class="card">
+            <p class="eyebrow">Classification Result</p>
+            {% if error %}
+                <h1>Unable to classify message</h1>
+                <p class="summary">{{ error }}</p>
+            {% else %}
+                <h1>{{ result.label | upper }}</h1>
+                <p class="summary">Spam probability: <strong>{{ "%.2f"|format(result.spam_probability * 100) }}%</strong></p>
+                <p class="small">Cleaned text: {{ result.clean_text }}</p>
+            {% endif %}
+            <a class="link" href="/">Classify another message</a>
+        </section>
+    </main>
+</body>
+</html>
